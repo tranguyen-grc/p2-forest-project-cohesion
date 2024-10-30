@@ -95,7 +95,8 @@ public final class WorldModel {
     private void parseSapling(String[] properties, Point pt, String id, ImageStore imageStore) {
         if (properties.length == Entity.SAPLING_NUM_PROPERTIES) {
             int health = Integer.parseInt(properties[Entity.SAPLING_HEALTH_IDX]);
-            Entity entity = Entity.createSapling(id, pt, imageStore.getImageList(Entity.SAPLING_KEY), health);
+//            Entity entity = Entity.createSapling(id, pt, imageStore.getImageList(Entity.SAPLING_KEY), health);
+            Sapling entity = new Sapling(id, pt, health, imageStore.getImageList(Entity.SAPLING_KEY));
             this.tryAddEntity(entity);
         }else{
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", Entity.SAPLING_KEY, Entity.SAPLING_NUM_PROPERTIES));
@@ -104,7 +105,8 @@ public final class WorldModel {
 
     private void parseDude(String[] properties, Point pt, String id, ImageStore imageStore) {
         if (properties.length == Entity.DUDE_NUM_PROPERTIES) {
-            Entity entity = Entity.createDudeNotFull(id, pt, Double.parseDouble(properties[Entity.DUDE_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.DUDE_ANIMATION_PERIOD_IDX]), Integer.parseInt(properties[Entity.DUDE_RESOURCE_LIMIT_IDX]), imageStore.getImageList(Entity.DUDE_KEY));
+//            Entity entity = Entity.createDudeNotFull(id, pt, Double.parseDouble(properties[Entity.DUDE_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.DUDE_ANIMATION_PERIOD_IDX]), Integer.parseInt(properties[Entity.DUDE_RESOURCE_LIMIT_IDX]), imageStore.getImageList(Entity.DUDE_KEY));
+            DudeNotFull entity = new DudeNotFull(id, pt, Double.parseDouble(properties[Entity.DUDE_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.DUDE_ANIMATION_PERIOD_IDX]), Integer.parseInt(properties[Entity.DUDE_RESOURCE_LIMIT_IDX]), imageStore.getImageList(Entity.DUDE_KEY));
             this.tryAddEntity(entity);
         }else{
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", Entity.DUDE_KEY, Entity.DUDE_NUM_PROPERTIES));
@@ -113,7 +115,8 @@ public final class WorldModel {
 
     private void parseFairy(String[] properties, Point pt, String id, ImageStore imageStore) {
         if (properties.length == Entity.FAIRY_NUM_PROPERTIES) {
-            Entity entity = Entity.createFairy(id, pt, Double.parseDouble(properties[Entity.FAIRY_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.FAIRY_ANIMATION_PERIOD_IDX]), imageStore.getImageList(Entity.FAIRY_KEY));
+//            Entity entity = Entity.createFairy(id, pt, Double.parseDouble(properties[Entity.FAIRY_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.FAIRY_ANIMATION_PERIOD_IDX]), imageStore.getImageList(Entity.FAIRY_KEY));
+            Fairy entity = new Fairy(id, pt, Double.parseDouble(properties[Entity.FAIRY_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.FAIRY_ANIMATION_PERIOD_IDX]), imageStore.getImageList(Entity.FAIRY_KEY));
             this.tryAddEntity(entity);
         }else{
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", Entity.FAIRY_KEY, Entity.FAIRY_NUM_PROPERTIES));
@@ -122,7 +125,8 @@ public final class WorldModel {
 
     private void parseTree(String[] properties, Point pt, String id, ImageStore imageStore) {
         if (properties.length == Entity.TREE_NUM_PROPERTIES) {
-            Entity entity = Entity.createTree(id, pt, Double.parseDouble(properties[Entity.TREE_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.TREE_ANIMATION_PERIOD_IDX]), Integer.parseInt(properties[Entity.TREE_HEALTH_IDX]), imageStore.getImageList(Entity.TREE_KEY));
+            Tree entity = new Tree(id, pt, Double.parseDouble(properties[Entity.TREE_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.TREE_ANIMATION_PERIOD_IDX]), Integer.parseInt(properties[Entity.TREE_HEALTH_IDX]), imageStore.getImageList(Entity.TREE_KEY));
+//            Entity entity = Entity.createTree(id, pt, Double.parseDouble(properties[Entity.TREE_ACTION_PERIOD_IDX]), Double.parseDouble(properties[Entity.TREE_ANIMATION_PERIOD_IDX]), Integer.parseInt(properties[Entity.TREE_HEALTH_IDX]), imageStore.getImageList(Entity.TREE_KEY));
             this.tryAddEntity(entity);
         }else{
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", Entity.TREE_KEY, Entity.TREE_NUM_PROPERTIES));
@@ -131,7 +135,8 @@ public final class WorldModel {
 
     private void parseObstacle(String[] properties, Point pt, String id, ImageStore imageStore) {
         if (properties.length == Entity.OBSTACLE_NUM_PROPERTIES) {
-            Entity entity = Entity.createObstacle(id, pt, Double.parseDouble(properties[Entity.OBSTACLE_ANIMATION_PERIOD_IDX]), imageStore.getImageList(Entity.OBSTACLE_KEY));
+            Obstacle entity = new Obstacle(id, pt, Double.parseDouble(properties[Entity.OBSTACLE_ANIMATION_PERIOD_IDX]), imageStore.getImageList(Entity.OBSTACLE_KEY));
+//            Entity entity = Entity.createObstacle(id, pt, Double.parseDouble(properties[Entity.OBSTACLE_ANIMATION_PERIOD_IDX]), imageStore.getImageList(Entity.OBSTACLE_KEY));
             this.tryAddEntity(entity);
         }else{
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", Entity.OBSTACLE_KEY, Entity.OBSTACLE_NUM_PROPERTIES));
@@ -140,7 +145,8 @@ public final class WorldModel {
 
     private void parseHouse(String[] properties, Point pt, String id, ImageStore imageStore) {
         if (properties.length == Entity.HOUSE_NUM_PROPERTIES) {
-            Entity entity = Entity.createHouse(id, pt, imageStore.getImageList(Entity.HOUSE_KEY));
+            House entity = new House(id, pt, imageStore.getImageList(Entity.HOUSE_KEY));
+//            Entity entity = Entity.createHouse(id, pt, imageStore.getImageList(Entity.HOUSE_KEY));
             this.tryAddEntity(entity);
         }else{
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", Entity.HOUSE_KEY, Entity.HOUSE_NUM_PROPERTIES));
@@ -149,7 +155,8 @@ public final class WorldModel {
 
     private void parseStump(String[] properties, Point pt, String id, ImageStore imageStore) {
         if (properties.length == Entity.STUMP_NUM_PROPERTIES) {
-            Entity entity = Entity.createStump(id, pt, imageStore.getImageList(Entity.STUMP_KEY));
+            Stump entity = new Stump(id, pt, imageStore.getImageList(Entity.STUMP_KEY));
+//            Entity entity = Entity.createStump(id, pt, imageStore.getImageList(Entity.STUMP_KEY));
             this.tryAddEntity(entity);
         }else{
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", Entity.STUMP_KEY, Entity.STUMP_NUM_PROPERTIES));
@@ -324,11 +331,18 @@ public final class WorldModel {
         }
     }
 
-    public Optional<Entity> findNearest(Point pos, List<EntityKind> kinds) {
+
+    /**
+     * Returns the closest entity
+     * @param pos      position of the entity calling findNearest
+     * @param classes  list of entities
+     */
+    public Optional<Entity> findNearest(Point pos, List<Class<? extends Entity>> classes) {
         List<Entity> ofType = new LinkedList<>();
-        for (EntityKind kind : kinds) {
+
+        for (Class<? extends Entity> clazz : classes) {
             for (Entity entity : this.entities) {
-                if (entity.getKind() == kind) {
+                if (clazz.isInstance(entity)) {  // Check if entity is an instance of the given class
                     ofType.add(entity);
                 }
             }
